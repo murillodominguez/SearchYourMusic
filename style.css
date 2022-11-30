@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    color: black;
+    text-decoration: none;
+    transition: color 200ms ease-out 100ms;
+}
+a:visited{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+    color: rgb(78, 78, 78);
+}
+header{
+    background-color: rgb(187, 187, 187);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.logo{
+    font-family: 'Secular One', sans-serif;
+    font-size: 2em;
+}
+
+
+main{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.info{
+    background-color: rgb(255, 255, 220);
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-inline: 10px;
+    text-align: justify;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    margin-inline: 20px;
+}
+
+#form input[type="text"]{
+    width: 30vw;
+}
+
+#GET-song:focus{
+    outline: 0;
+}

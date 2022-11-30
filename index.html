@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Async</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <header>
+            <a class="logo" href="./index.html">SearchYourMusic</a>
+        </header>
+        <main>
+            <div class="info">This website is made for searching your favorite songs using an API software communication. Send informations via the forms below and the server will fetch what you're looking for.</div>
+            <form id="form" action="" method="get">
+                <label for="GET-song">Search song:</label>
+                <input id="GET-song" type="text" name="song">
+                <input id="submit" type="submit" value="Search">
+            </form>
+        </main>
+        <footer></footer>
+        <script>
+            document.querySelector('#submit').addEventListener('click',consulta);
+            const options = "{'method': 'GET','headers': {'X-RapidAPI-Key': '03b9311a3emshc001c48c0adb57fp157d4fjsn1f5167e74b3e','X-RapidAPI-Host': 'shazam.p.rapidapi.com'}";
+            async function consulta(){
+                let song = document.querySelector('#GET-song').value;
+                try{
+                    let resposta = await fetch("https://shazam.p.rapidapi.com/search?term=kiss%20the%20rain&locale=en-US&offset=0&limit=5", options);
+                    let js = await resposta.json();
+                    mostraDados(js);
+                }
+                catch {
+                    console.log(err)
+                }
+            }       
+            function mostraDados(js){
+                const painel = document.querySelector('#mostra');
+                let texto= "<h1>Dados solicitados</h1>";
+                texto=texto + "Bairro:"+ js.bairro+"<br>";
+                texto=texto + "DDD:"+ js.ddd+"<br>";
+                painel.innerHTML = texto;
+            }
+        </script>
+    </body>
+</html>
